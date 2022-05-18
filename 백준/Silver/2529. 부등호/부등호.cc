@@ -41,7 +41,6 @@ int main()
 		check[i] = true;
 	for (int i = 0; i < k; i++)
 		cin >> arr[i];
-	go(0);
 	for (int i = 0; i < 10; i++)
 	{
 		check[i] = false;
