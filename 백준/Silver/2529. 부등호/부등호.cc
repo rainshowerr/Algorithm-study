@@ -17,14 +17,9 @@ void go(int index)
 	}
 	for (int i = 0; i <= 9; i++)
 	{
-		if (((check[i] == true) && arr[index - 1] == '<') && (i + '0' > ans[index - 1]))
-		{
-			ans[index] = i + '0';
-			check[i] = false;
-			go(index + 1);
-			check[i] = true;
-		}
-		else if ((check[i] == true) && (arr[index - 1] == '>') && (i + '0' < ans[index - 1]))
+		if ((check[i] == true) 
+			&& ((arr[index - 1] == '<') && (i + '0' > ans[index - 1])
+			|| ((arr[index - 1] == '>') && (i + '0' < ans[index - 1]))))
 		{
 			ans[index] = i + '0';
 			check[i] = false;
@@ -46,6 +41,7 @@ int main()
 		check[i] = true;
 	for (int i = 0; i < k; i++)
 		cin >> arr[i];
+	go(0);
 	for (int i = 0; i < 10; i++)
 	{
 		check[i] = false;
