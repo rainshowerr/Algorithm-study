@@ -11,6 +11,7 @@ int dx[4] = { -1, 1, 0, 0 };
 int dy[4] = { 0, 0, -1, 1 };
 int n, min_dist = 10001;
 
+// 섬 넘버링
 void dfs(int x, int y, int cnt) {
 	visited[x][y] = true;
 	map[x][y] = cnt;
@@ -33,6 +34,7 @@ bool is_edge(int x, int y, int cnt) {
 	return false;
 }
 
+// 다리 최소 길이 구하기
 void bfs(int x, int y, int cnt) {
 	q.push({ x, y });
 	while (!q.empty()) {
@@ -53,7 +55,7 @@ void bfs(int x, int y, int cnt) {
 				else if (map[nx][ny] != cnt) {
 					dist[nx][ny] = dist[x][y];
 					min_dist = min(dist[nx][ny], min_dist);
-					while (!q.empty())
+					while (!q.empty()) // 큐 비워주기!!!!!!
 						q.pop();
 					return;
 				}
@@ -72,7 +74,7 @@ int main(void) {
 			cin >> map[i][j];
 		}
 	}
-	// 섬에 번호 붙이기
+	// 섬 넘버링
 	int cnt = 1;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
@@ -80,12 +82,12 @@ int main(void) {
 				dfs(i, j, cnt++);
 		}
 	}
-	// 다른 섬까지의 최단거리 구하기
+	// 다리 최소 길이 구하기(모든 섬 -> 섬 체크)
 	int mini = 10001;
 	for (int i = 1; i < cnt; i++) {
 		for (int a = 0; a < n; a++) {
 			for (int b = 0; b < n; b++) {
-				if (is_edge(a, b, i)) {
+				if (is_edge(a, b, i)) { // 섬의 가장자리에서 출발하는 BFS
 					memset(visited, false, sizeof(visited));
 					memset(dist, 0, sizeof(dist));
 					bfs(a, b, i);
@@ -93,5 +95,6 @@ int main(void) {
 			}
 		}
 	}
+	// 결과 출력
 	cout << min_dist;
 }
