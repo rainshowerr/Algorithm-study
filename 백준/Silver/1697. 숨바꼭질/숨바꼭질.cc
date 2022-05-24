@@ -36,9 +36,6 @@ int main(void) {
 	if (n == k) {
 		cout << '0';
 	}
-	else if (n > k) {
-		cout << n - k;
-	}
 	else {
 		bfs();
 		cout << ans;
