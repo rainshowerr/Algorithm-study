@@ -2,31 +2,31 @@
 using namespace std;
 
 struct node {
-	int left;
-	int right;
+	char left;
+	char right;
 };
 
-node a[26];
+node a['Z' + 1];
 
-void preorder(int x) {
-	if (x == -1) return;
-	cout << (char)(x + 'A');
+void preorder(char x) {
+	if (x == '.') return;
+	cout << x;
 	preorder(a[x].left);
 	preorder(a[x].right);
 }
 
-void inorder(int x) {
-	if (x == -1) return;
+void inorder(char x) {
+	if (x == '.') return;
 	inorder(a[x].left);
-	cout << (char)(x + 'A');
+	cout << x;
 	inorder(a[x].right);
 }
 
-void postorder(int x) {
-	if (x == -1) return;
+void postorder(char x) {
+	if (x == '.') return;
 	postorder(a[x].left);
 	postorder(a[x].right);
-	cout << (char)(x + 'A');
+	cout << x;
 }
 
 int main() {
@@ -36,17 +36,10 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		char x, y, z;
 		cin >> x >> y >> z;
-		x = x - 'A';
-		if (y == '.')
-			a[x].left = -1;
-		else
-			a[x].left = y - 'A';
-		if (z == '.')
-			a[x].right = -1;
-		else
-			a[x].right = z - 'A';
+		a[x].left = y;
+		a[x].right = z;
 	}
-	preorder(0); cout << '\n';
-	inorder(0); cout << '\n';
-	postorder(0); cout << '\n';
+	preorder('A'); cout << '\n';
+	inorder('A'); cout << '\n';
+	postorder('A'); cout << '\n';
 }
