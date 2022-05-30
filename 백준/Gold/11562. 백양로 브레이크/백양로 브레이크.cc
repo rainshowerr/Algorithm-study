@@ -1,12 +1,8 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cstring>
 using namespace std;
 #define INF 987654321;
 
 int map[251][251];
-vector<int> node[251];
 
 int main() {
 	ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
