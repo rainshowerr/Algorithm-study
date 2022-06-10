@@ -10,7 +10,7 @@ int main() {
 	while (t--) {
 		// 함수, 배열 입력받기
 		string p, num;
-		int n, cnt = 0;
+		int n;
 		cin >> p >> n >> num;
 		// 숫자만 덱에 push!
 		deque<int> q;
