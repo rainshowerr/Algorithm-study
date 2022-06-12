@@ -22,7 +22,6 @@ int main() {
 	}
 	sort(positive.begin(), positive.end(), greater<>());
 	sort(negative.begin(), negative.end());
-	int i = 0;
 	// 벡터에 담긴 숫자의 개수를 짝수로 만들어주기 (짝지어 곱해줄거니까)
 	if (positive.size() % 2 == 1)
 		positive.push_back(1);
