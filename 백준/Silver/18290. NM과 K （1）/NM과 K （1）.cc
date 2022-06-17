@@ -3,8 +3,6 @@ using namespace std;
 
 int n, m, k, maximum = -2147483648, num[10][10];
 bool visited[10][10] = { false, };
-int dx[4] = {-1, 1, 0, 0};
-int dy[4] = {0, 0, -1, 1};
 
 void go(int x, int y, int choice){
     if (choice == k){
