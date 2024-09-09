@@ -1,6 +1,6 @@
 # [level 3] 베스트앨범 - 42579 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42579#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42579?language=cpp) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 09일 13:06:13
+2024년 09월 09일 13:06:18
 
 ### 문제 설명
 
