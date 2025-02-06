@@ -1,40 +1,40 @@
 #include <iostream>
+#include <vector>
+
 using namespace std;
-int arr[10000001];
-int prime[10000001];
+
+bool visited[1000001] = {false,};
+vector<int> sosu;
+
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
-	cout.tie(nullptr);
-	for (int i = 0; i < 1000001; i++) {
-		arr[i] = i;
-	}
-	for (int i = 2; i < 1000001; i++) {
-		if (arr[i] == 0)
-			continue;
-		for (int j = 2; i * j < 1000001; j++)
-			arr[i * j] = 0;
-	}
-	for (int x = 3, y=0; x < 1000001; x++) {
-		if (arr[x]) {
-			prime[y] = arr[x];
-			y++;
-		}
-	}
-	while (1) {
-		int n;
-		cin >> n;
-		if (n == 0)
-			break;
-		for (int z = 0;z<sizeof(prime)/sizeof(int);z++) {
-			if (arr[n - prime[z]]) {
-				cout << n << " = " << prime[z] << " + " << arr[n - prime[z]] << '\n';
-				break;
-			}
-			if(z==(sizeof(prime)/sizeof(int))-1)
-				cout << "'Goldbach's conjecture is wrong.";
-		}
-		
-	}
-	return 0;
+    ios::sync_with_stdio(0); cin.tie(0);
+
+    // 에라토스테네스의 체
+    for(int i = 2; i * i <= 1000000; i++) {
+        if (!visited[i]) {
+            for(int j = i * i; j <= 1000000; j += i) {
+                visited[j] = true;
+            }
+        }
+    }
+
+    for(int i = 2; i * i <= 1000000; i++) {
+        if (!visited[i]) sosu.push_back(i);
+    }
+
+    int n;
+    bool flag = false;
+    while(1) {
+        cin >> n;
+        if (n == 0) break;
+        for(auto x: sosu) {
+            if (!visited[n - x]) {
+                cout << n << " = " << x << " + " << n - x << '\n';
+                flag = true;
+                break;
+            }
+        }
+        if (!flag)
+            cout << "Goldbach's conjecture is wrong.";
+    }
 }
