@@ -6,14 +6,12 @@ using namespace std;
 vector<int> adjlist[100001];
 int parent[18][100001]; // parents 저장할 공간 17개 필요
 int depth[100001];
-int visited[100001];
 
 // 노드의 depth와 parents 저장
 void make_tree(int node, int h) {
     depth[node] = h;
-    visited[node] = true;
     for(int next: adjlist[node]) {
-        if (visited[next]) continue;
+        if (next == parent[0][node]) continue;
         // parents 저장
         parent[0][next] = node;
         for (int k = 1; k <= 17; k++)
