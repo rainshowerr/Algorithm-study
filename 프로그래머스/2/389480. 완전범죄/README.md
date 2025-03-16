@@ -1,10 +1,10 @@
 # [level 2] 완전범죄 - 389480 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/389480?language=cpp) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/389480) 
 
 ### 성능 요약
 
-메모리: 4.43 MB, 시간: 1.45 ms
+메모리: 4.21 MB, 시간: 0.62 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 03월 16일 21:36:14
+2025년 03월 16일 21:38:34
 
 ### 문제 설명
 

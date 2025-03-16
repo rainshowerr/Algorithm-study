@@ -4,7 +4,7 @@
 using namespace std;
 
 int minn = 1e9, nn, mm, rows;
-int memo[121][121][41];
+bool memo[121][121][41];
 
 void dfs(int a, int b, int k, vector<vector<int>>& info) {
     if (a >= nn || b >= mm) return;
@@ -15,8 +15,8 @@ void dfs(int a, int b, int k, vector<vector<int>>& info) {
     }
     dfs(a + info[k][0], b, k + 1, info);
     dfs(a, b + info[k][1], k + 1, info);
-    memo[a + info[k][0]][b][k + 1] = 1;
-    memo[a][b + info[k][1]][k + 1] = 1;
+    memo[a + info[k][0]][b][k + 1] = true;
+    memo[a][b + info[k][1]][k + 1] = true;
 }
 
 int solution(vector<vector<int>> info, int n, int m) {
